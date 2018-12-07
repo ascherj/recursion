@@ -4,7 +4,7 @@
 // };
 
 // But instead we're going to implement it from scratch:
-var getElementsByClassName = function(className, currentNode=document.body) {
+var getElementsByClassName = function(className, currentNode = document.body) {
   var result = [];
   var classList = currentNode.classList;
 
@@ -12,11 +12,9 @@ var getElementsByClassName = function(className, currentNode=document.body) {
     result.push(currentNode);
   }
 
-  if (currentNode.hasChildNodes()) {
-    currentNode.childNodes.forEach(function(child) {
-      result = result.concat(getElementsByClassName(className, child));
-    });
-  }
-
+  currentNode.childNodes.forEach(function(child) {
+    result = result.concat(getElementsByClassName(className, child));
+  });
+  
   return result;
 };
